@@ -1,0 +1,12 @@
+D:\Visual Studio Projects\LocalDB_Example\LocalDB_Example\bin\Debug\Database.mdf
+D:\Visual Studio Projects\LocalDB_Example\LocalDB_Example\bin\Debug\Database_log.ldf
+D:\Visual Studio Projects\LocalDB_Example\LocalDB_Example\bin\Debug\LocalDB_Example.exe.config
+D:\Visual Studio Projects\LocalDB_Example\LocalDB_Example\bin\Debug\LocalDB_Example.exe
+D:\Visual Studio Projects\LocalDB_Example\LocalDB_Example\bin\Debug\LocalDB_Example.pdb
+D:\Visual Studio Projects\LocalDB_Example\LocalDB_Example\obj\Debug\LocalDB_Example.csprojAssemblyReference.cache
+D:\Visual Studio Projects\LocalDB_Example\LocalDB_Example\obj\Debug\LocalDB_Example.Properties.Resources.resources
+D:\Visual Studio Projects\LocalDB_Example\LocalDB_Example\obj\Debug\LocalDB_Example.Users.resources
+D:\Visual Studio Projects\LocalDB_Example\LocalDB_Example\obj\Debug\LocalDB_Example.csproj.GenerateResource.cache
+D:\Visual Studio Projects\LocalDB_Example\LocalDB_Example\obj\Debug\LocalDB_Example.csproj.CoreCompileInputs.cache
+D:\Visual Studio Projects\LocalDB_Example\LocalDB_Example\obj\Debug\LocalDB_Example.exe
+D:\Visual Studio Projects\LocalDB_Example\LocalDB_Example\obj\Debug\LocalDB_Example.pdb
