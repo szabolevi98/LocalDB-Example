@@ -34,10 +34,12 @@ namespace LocalDB_Example
             System.Windows.Forms.Label emailLabel;
             System.Windows.Forms.Label phoneLabel;
             System.Windows.Forms.Label newsLetterLabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Users));
             System.Windows.Forms.Label realNameLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Users));
             this.usersBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.databaseDataSet = new LocalDB_Example.DatabaseDataSet();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -60,8 +62,6 @@ namespace LocalDB_Example
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.usersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.databaseDataSet = new LocalDB_Example.DatabaseDataSet();
             this.usersTableAdapter = new LocalDB_Example.DatabaseDataSetTableAdapters.UsersTableAdapter();
             this.tableAdapterManager = new LocalDB_Example.DatabaseDataSetTableAdapters.TableAdapterManager();
             this.realNameTextBox = new System.Windows.Forms.TextBox();
@@ -75,9 +75,9 @@ namespace LocalDB_Example
             realNameLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingNavigator)).BeginInit();
             this.usersBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.usersDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // userNameLabel
@@ -112,9 +112,18 @@ namespace LocalDB_Example
             newsLetterLabel.AutoSize = true;
             newsLetterLabel.Location = new System.Drawing.Point(12, 137);
             newsLetterLabel.Name = "newsLetterLabel";
-            newsLetterLabel.Size = new System.Drawing.Size(67, 13);
+            newsLetterLabel.Size = new System.Drawing.Size(60, 13);
             newsLetterLabel.TabIndex = 11;
-            newsLetterLabel.Text = "News Letter:";
+            newsLetterLabel.Text = "Newsletter:";
+            // 
+            // realNameLabel
+            // 
+            realNameLabel.AutoSize = true;
+            realNameLabel.Location = new System.Drawing.Point(12, 57);
+            realNameLabel.Name = "realNameLabel";
+            realNameLabel.Size = new System.Drawing.Size(63, 13);
+            realNameLabel.TabIndex = 5;
+            realNameLabel.Text = "Real Name:";
             // 
             // usersBindingNavigator
             // 
@@ -154,6 +163,16 @@ namespace LocalDB_Example
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Add new";
+            // 
+            // usersBindingSource
+            // 
+            this.usersBindingSource.DataMember = "Users";
+            this.usersBindingSource.DataSource = this.databaseDataSet;
+            // 
+            // databaseDataSet
+            // 
+            this.databaseDataSet.DataSetName = "DatabaseDataSet";
+            this.databaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // bindingNavigatorCountItem
             // 
@@ -248,8 +267,6 @@ namespace LocalDB_Example
             this.userNameTextBox.Name = "userNameTextBox";
             this.userNameTextBox.Size = new System.Drawing.Size(186, 20);
             this.userNameTextBox.TabIndex = 4;
-            this.userNameTextBox.Click += new System.EventHandler(this.EditCheck);
-            this.userNameTextBox.TextChanged += new System.EventHandler(this.EditCheck);
             // 
             // emailTextBox
             // 
@@ -258,8 +275,6 @@ namespace LocalDB_Example
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(186, 20);
             this.emailTextBox.TabIndex = 8;
-            this.emailTextBox.Click += new System.EventHandler(this.EditCheck);
-            this.emailTextBox.TextChanged += new System.EventHandler(this.EditCheck);
             // 
             // phoneTextBox
             // 
@@ -268,8 +283,6 @@ namespace LocalDB_Example
             this.phoneTextBox.Name = "phoneTextBox";
             this.phoneTextBox.Size = new System.Drawing.Size(186, 20);
             this.phoneTextBox.TabIndex = 10;
-            this.phoneTextBox.Click += new System.EventHandler(this.EditCheck);
-            this.phoneTextBox.TextChanged += new System.EventHandler(this.EditCheck);
             // 
             // newsLetterCheckBox
             // 
@@ -338,16 +351,6 @@ namespace LocalDB_Example
             this.dataGridViewCheckBoxColumn1.HeaderText = "NewsLetter";
             this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
             // 
-            // usersBindingSource
-            // 
-            this.usersBindingSource.DataMember = "Users";
-            this.usersBindingSource.DataSource = this.databaseDataSet;
-            // 
-            // databaseDataSet
-            // 
-            this.databaseDataSet.DataSetName = "DatabaseDataSet";
-            this.databaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // usersTableAdapter
             // 
             this.usersTableAdapter.ClearBeforeFill = true;
@@ -365,17 +368,6 @@ namespace LocalDB_Example
             this.realNameTextBox.Name = "realNameTextBox";
             this.realNameTextBox.Size = new System.Drawing.Size(186, 20);
             this.realNameTextBox.TabIndex = 6;
-            this.realNameTextBox.Click += new System.EventHandler(this.EditCheck);
-            this.realNameTextBox.TextChanged += new System.EventHandler(this.EditCheck);
-            // 
-            // realNameLabel
-            // 
-            realNameLabel.AutoSize = true;
-            realNameLabel.Location = new System.Drawing.Point(12, 57);
-            realNameLabel.Name = "realNameLabel";
-            realNameLabel.Size = new System.Drawing.Size(63, 13);
-            realNameLabel.TabIndex = 5;
-            realNameLabel.Text = "Real Name:";
             // 
             // searchTextBox
             // 
@@ -429,9 +421,9 @@ namespace LocalDB_Example
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingNavigator)).EndInit();
             this.usersBindingNavigator.ResumeLayout(false);
             this.usersBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.usersDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.usersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usersDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

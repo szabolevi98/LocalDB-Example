@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,7 +17,15 @@ namespace LocalDB_Example
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Users());
+            string db = "Database.mdf";
+            if (File.Exists(db))
+            {
+                Application.Run(new Users());
+            }
+            else
+            {
+                MessageBox.Show($"The file: {db} does not exists!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
